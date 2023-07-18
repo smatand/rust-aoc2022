@@ -17,19 +17,18 @@ pub fn get_sum_of_calories(input: &str) -> Vec<u32> {
 pub fn part_one(input: &str) -> Option<u32> {
     let calories = get_sum_of_calories(input);
 
-    //Some(*calories.last().unwrap())
-    calories.last()
-        .and_then(|&max| Some(max))
+    let max = calories.last()?;
+
+    Some(*max)
+
+    //calories.last()
+    //    .and_then(|&max| Some(max))
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
     let calories = get_sum_of_calories(input);
-
     let len = calories.len();
 
-    println!("{}", calories[len-1]);
-    println!("{}", calories[len-2]);
-    println!("{}", calories[len-3]);
     Some(calories[len-1] + calories[len-2] + calories[len-3])
 }
 
